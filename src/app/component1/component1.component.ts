@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, HostListener, EventEmitter, HostBinding } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Input } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-component1',
@@ -6,17 +8,15 @@ import { Component, OnInit, Output, HostListener, EventEmitter, HostBinding } fr
   styleUrls: ['./component1.component.css']
 })
 export class Component1Component implements OnInit {
-
+  
   constructor() { }
-
+  @Input() videos : Array<any>;
   ngOnInit() {
   }
-  @Output()
-   toggle: EventEmitter<any> = new EventEmitter<any>();
-
-  @HostListener('click')
-  click() {
-    this.toggle.emit();
+  @Output() open: EventEmitter<any> = new EventEmitter();
+  addToParent(){
+    this.open.emit("Calling from child");
+  }
 
   }
-}
+

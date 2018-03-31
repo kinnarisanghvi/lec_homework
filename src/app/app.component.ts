@@ -16,5 +16,7 @@ export class AppComponent {
       "Installing node.js","Installing sql server"
     ]
   }
-
+   addVideos(msg){
+      this.videos.push(msg);
+   }
   }

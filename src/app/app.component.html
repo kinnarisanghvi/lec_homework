@@ -1,2 +1,6 @@
 <h1>{{mainheading}}</h1>
-<app-component1 [videos] = "videos"></app-component1>
+<ul>
+    <li *ngFor = "let v of videos">
+      <app-component1 [videos] = "videos" (open) = "addVideos($event)"></app-component1>
+    </li>
+  </ul>
